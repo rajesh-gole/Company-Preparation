@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#define MAX_SIZE 100000
+using namespace std;
+
+void seive(int n,int nth)
+{
+    vector<int> v;
+    bool prime[n+1];
+    memset(prime,true,sizeof(prime));
+    for(int p=2;p*p<n;p++)
+    {
+        if(prime[p]==true)
+        {
+            for(int i=p*p;i<n;i=i+p)
+                prime[i]=false;
+        }
+    }
+    for(int j=2;j< n;j++)
+    {
+        if(prime[j])
+            v.push_back(j);
+    }
+    cout<<v[nth-1];
+}
+int main()
+{
+    int n=MAX_SIZE;
+    int nth;cin>>nth;
+    seive(n,nth);
+}
