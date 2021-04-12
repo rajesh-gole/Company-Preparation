@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+void ArraySort(int a1[],int a2[],int m,int n)
+{
+    map<int,int> mp;
+    unordered_map<int,int> mp1;
+    for(int i=0;i<m;i++)
+    {
+        mp[a1[i]]++;
+    }
+    for(int i=0;i<n;i++)
+    {
+        mp1[a2[i]]++;
+    }
+    for(auto x:mp)
+    {
+        if(mp1.find(x.first)!=mp1.end())
+        {
+            while(x.second--)
+                cout<<x.first<<" ";
+            mp.erase(x.first);
+        }
+    }
+    for(auto x:mp)
+    while(x.second--)
+        cout<<x.first<<" ";
+}
+int main()
+{
+    int a1[]={5, 8, 9, 3, 5, 7, 1, 3, 4, 9, 3, 5, 1, 8, 4};
+    int a2[]={3, 5, 7, 2};
+    // Output : 3, 3, 3, 5, 5, 5, 7, 1, 1, 4, 4, 8, 8, 9, 9
+    int m=sizeof(a1)/sizeof(a1[0]);
+    int n=sizeof(a2)/sizeof(a2[0]);
+    ArraySort(a1,a2,m,n);
+}
