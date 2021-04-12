@@ -38,5 +38,8 @@ int main()
    Step2: store the freq,ele into vector using pair
    Step3: sort freq in decreasing order
    Step4: print the ele as per their freq
+   
+   '-' is must else 5 come first the 4 will come
+   */
 
 
